@@ -1,17 +1,16 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://127.0.0.1:8000"
+    baseURL: import.meta.env.VITE_API_URL,
 });
 
-export async function chat(query, documentId) {
+export default api;
 
+export async function chat(query, documentId) {
     const response = await api.post("/chat", {
         query,
-        document_id: documentId
+        document_id: documentId,
     });
 
     return response.data;
 }
-
-export default api;
