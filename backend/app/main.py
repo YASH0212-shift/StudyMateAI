@@ -29,3 +29,8 @@ def home():
     return {
         "message": "StudyMate AI Backend Running"
     }
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy"
+    }
